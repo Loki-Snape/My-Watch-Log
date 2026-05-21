@@ -1,0 +1,84 @@
+<%- include("partials/header.ejs") %>
+
+<div class="error-container">
+    <div class="death-symbol">☠️</div>
+    <h1 class="error-title">ACCESS DENIED</h1>
+    <p class="error-message">Wrong password. You have been eliminated from the game.</p>
+    
+    <div class="squid-game-message">
+        <p>"The password you entered is incorrect. Only authorized players may proceed."</p>
+    </div>
+    
+    <div class="error-actions">
+        <a href="/" class="button">Return to Watch Log</a>
+    </div>
+</div>
+
+<style>
+    .error-container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        min-height: 60vh;
+        text-align: center;
+        padding: 40px 20px;
+        background: rgba(0, 0, 0, 0.9);
+        border: 3px solid var(--stranger-things-red);
+        border-radius: 10px;
+        margin-top: 40px;
+        box-shadow: 0 0 30px rgba(255, 0, 0, 0.5);
+    }
+
+    .death-symbol {
+        font-size: 5rem;
+        margin-bottom: 20px;
+        animation: pulse 1.5s infinite;
+    }
+
+    @keyframes pulse {
+        0%, 100% { opacity: 1; }
+        50% { opacity: 0.5; }
+    }
+
+    .error-title {
+        font-family: 'Bebas Neue', sans-serif;
+        font-size: 3.5rem;
+        color: var(--stranger-things-red);
+        text-shadow: 0 0 20px var(--stranger-things-red);
+        letter-spacing: 4px;
+        margin: 20px 0;
+        text-transform: uppercase;
+    }
+
+    .error-message {
+        font-family: 'Orbitron', sans-serif;
+        font-size: 1.2rem;
+        color: #ff6666;
+        margin: 15px 0;
+        letter-spacing: 1px;
+    }
+
+    .squid-game-message {
+        background: rgba(139, 0, 0, 0.3);
+        border: 2px solid var(--it-blood);
+        border-radius: 5px;
+        padding: 20px;
+        margin: 25px 0;
+        max-width: 500px;
+        font-style: italic;
+    }
+
+    .squid-game-message p {
+        color: #ffaaaa;
+        font-family: 'Cinzel', serif;
+        margin: 0;
+        font-size: 1.1rem;
+    }
+
+    .error-actions {
+        margin-top: 30px;
+    }
+</style>
+
+<%- include("partials/footer.ejs") %>

@@ -1,0 +1,48 @@
+<%- include("partials/header.ejs") %>
+
+<div class="dashboard-header">
+    <h1>My Watch Log</h1>
+    <a href="/add" class="button">Log a New Movie</a>
+</div>
+
+<div class="movie-log">
+    <% if(locals.m && m.length > 0){ %>
+        
+        <% let currentDateMemory = ""; %>
+        
+        <% m.forEach(movie => { %>
+            
+            <% let formattedDate = new Date(movie.watch_date).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' }); %>
+
+            <% if(formattedDate !== currentDateMemory) { %>
+                <h2 class="date-heading"><%= formattedDate %></h2> 
+                
+                <% currentDateMemory = formattedDate; %>
+            <% } %>
+
+            <div class="movie-card">
+                <div class="poster-container">
+                    <img src="<%= movie.poster %>" alt="Movie Poster">
+                </div>
+                
+                <div class="movie-details">
+                    <h3><%= movie.title %></h3>
+                    <p class="rating">Rating: <%= movie.rating %>/5</p>
+                    <p class="notes"><%= movie.review %></p>
+                </div>
+
+                <div class="movie-actions">
+                    <a href="/edit/<%= movie.id %>" class="button edit">Edit</a>
+                    <a href="/delete-confirm/<%= movie.id %>" class="button delete">Delete</a>
+                </div>
+            </div>
+            
+        <% }) %>
+
+    <% } else { %>
+        <h2 class="date-heading">No movies logged yet!</h2> 
+        <p style="color: white; text-align: center;">Click "Log a New Movie" to get started.</p>
+    <% } %>
+</div>
+
+<%- include("partials/footer.ejs") %>

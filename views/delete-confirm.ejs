@@ -1,0 +1,120 @@
+<%- include("partials/header.ejs") %>
+
+<div class="delete-confirm-container">
+    <h2>Confirm Delete</h2>
+    
+    <div class="warning-message">
+        <p>⚠️ You are about to permanently delete this movie entry.</p>
+        <p>Enter your admin password to confirm this action.</p>
+    </div>
+    
+    <form action="/delete" method="POST" class="delete-form">
+        <input type="hidden" name="id" value="<%= movieId %>">
+        
+        <div class="form-group">
+            <label for="password">Admin Password:</label>
+            <input type="password" id="password" name="password" required autofocus>
+        </div>
+        
+        <div class="form-actions">
+            <button type="submit" class="button delete">Confirm Delete</button>
+            <a href="/" class="button cancel">Cancel</a>
+        </div>
+    </form>
+</div>
+
+<style>
+    .delete-confirm-container {
+        background: rgba(0, 20, 30, 0.8);
+        border: 2px solid var(--scifi-cyan);
+        padding: 40px;
+        border-radius: 10px;
+        box-shadow: 0 0 20px rgba(0, 240, 255, 0.2);
+        max-width: 500px;
+        margin: 50px auto;
+        text-align: center;
+    }
+
+    .delete-confirm-container h2 {
+        font-family: 'Orbitron', sans-serif;
+        color: var(--stranger-things-red);
+        text-shadow: 0 0 10px var(--stranger-things-red);
+        text-transform: uppercase;
+        letter-spacing: 2px;
+        margin-top: 0;
+    }
+
+    .warning-message {
+        background: rgba(139, 0, 0, 0.2);
+        border-left: 4px solid var(--it-blood);
+        padding: 20px;
+        margin: 25px 0;
+        border-radius: 5px;
+    }
+
+    .warning-message p {
+        color: #ffaaaa;
+        font-family: 'Montserrat', sans-serif;
+        margin: 10px 0;
+        font-size: 0.95rem;
+    }
+
+    .delete-form {
+        margin-top: 30px;
+    }
+
+    .delete-form .form-group {
+        margin-bottom: 25px;
+        text-align: left;
+    }
+
+    .delete-form label {
+        font-family: 'Orbitron', sans-serif;
+        color: #88fffe;
+        display: block;
+        margin-bottom: 8px;
+        font-size: 0.9rem;
+    }
+
+    .delete-form input {
+        width: 100%;
+        padding: 12px;
+        background-color: rgba(0, 0, 0, 0.6);
+        border: 1px solid #005f66;
+        color: #fff;
+        font-family: 'Montserrat', sans-serif;
+        border-radius: 4px;
+        box-sizing: border-box;
+        font-size: 1rem;
+    }
+
+    .delete-form input:focus {
+        outline: none;
+        border-color: var(--scifi-cyan);
+        box-shadow: 0 0 10px rgba(0, 240, 255, 0.5);
+    }
+
+    .form-actions {
+        display: flex;
+        gap: 15px;
+        justify-content: center;
+        margin-top: 30px;
+    }
+
+    .form-actions .button {
+        flex: 1;
+        max-width: 200px;
+    }
+
+    .form-actions .cancel {
+        background-color: #555;
+        border-bottom: 4px solid #333;
+    }
+
+    .form-actions .cancel:hover {
+        background-color: #666;
+        border-bottom: 4px solid #444;
+    }
+</style>
+
+<%- include("partials/footer.ejs") %>
