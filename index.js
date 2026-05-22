@@ -12,12 +12,11 @@ const port = 3000;
 // const YOUR_API_KEY = "";
 
 const db = new pg.Client({
-    user: "postgres",
-    host: "localhost",
-    database: "Movies",
-    password: "Om16",
-    port: 5432,
-})
+    connectionString: process.env.DATABASE_URL,
+    ssl: {
+        rejectUnauthorized: false
+    }
+});
 db.connect();
 
 app.set("view engine", "ejs");
