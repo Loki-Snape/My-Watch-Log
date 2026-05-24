@@ -28,6 +28,10 @@
     --conjuring-shadow: #0a0a0a;
 }
 
+*, *::before, *::after {
+    box-sizing: border-box;
+}
+
 /* =========================================================
    1. BASE & BACKGROUND: The Conjuring / From (Horror)
    Dark, brooding, atmospheric, and shadowy.
@@ -84,6 +88,13 @@ nav a:hover {
     text-shadow: 0 0 8px var(--stranger-things-red);
 }
 
+nav {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+    gap: 12px;
+}
+
 /* =========================================================
    3. DATE HEADINGS: Harry Potter
    Magical gold, elegant serif font, subtle glowing aura.
@@ -118,6 +129,13 @@ nav a:hover {
 .movie-card:hover {
     transform: translateY(-5px);
     border-color: var(--harry-potter-gold);
+}
+
+.movie-actions {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    flex-shrink: 0;
 }
 
 .poster-container img {
@@ -247,4 +265,103 @@ footer {
     border-top: 1px solid #333;
     font-family: 'Orbitron', sans-serif;
     color: #666;
+}
+
+@media (max-width: 768px) {
+    header {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 18px 20px;
+        gap: 14px;
+    }
+
+    .logo {
+        font-size: 2rem;
+        letter-spacing: 2px;
+    }
+
+    nav {
+        justify-content: flex-start;
+        width: 100%;
+    }
+
+    main {
+        padding: 16px;
+    }
+
+    .date-heading {
+        font-size: 1.5rem;
+        letter-spacing: 1px;
+        margin-top: 35px;
+    }
+
+    .movie-card {
+        flex-direction: column;
+        gap: 16px;
+    }
+
+    .poster-container img {
+        width: 100%;
+        max-width: 260px;
+        display: block;
+    }
+
+    .movie-details {
+        padding: 0;
+    }
+
+    .movie-details h3 {
+        font-size: 1.5rem;
+    }
+
+    .movie-actions {
+        width: 100%;
+        flex-wrap: wrap;
+    }
+
+    .movie-actions .button {
+        flex: 1 1 120px;
+        text-align: center;
+    }
+
+    .form-container {
+        padding: 22px 18px;
+    }
+
+    .form-container h2 {
+        font-size: 1.6rem;
+    }
+
+    .button {
+        width: 100%;
+        text-align: center;
+    }
+}
+
+@media (max-width: 480px) {
+    .logo {
+        font-size: 1.7rem;
+    }
+
+    .date-heading {
+        font-size: 1.25rem;
+    }
+
+    .movie-card {
+        padding: 12px;
+    }
+
+    .poster-container img {
+        max-width: 100%;
+    }
+
+    .movie-details h3 {
+        font-size: 1.35rem;
+    }
+
+    .button,
+    .button.delete {
+        font-size: 1rem;
+        letter-spacing: 1px;
+    }
 }
