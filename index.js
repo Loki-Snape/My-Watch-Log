@@ -27,7 +27,7 @@ let movies = [{id : 1, title : "Dhurandhar",  watch_date : '2026-05-01', rating 
 
 app.get("/", async (req, res)=>{
     try{
-        const r = await db.query("SELECT * FROM movies ORDER BY watch_date ASC");
+        const r = await db.query("SELECT * FROM movies ORDER BY watch_date DESC");
         movies = r.rows;
     }
     catch(err){
